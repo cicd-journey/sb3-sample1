@@ -44,4 +44,15 @@
 		</plugins>
 	</build>
 
+	<!-- Add Packages repository -->
+        <!--
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub OWNER Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/cicd-journey/sb3-sample1</url>
+		</repository>
+	</distributionManagement>
+        -->
+
 </project>
