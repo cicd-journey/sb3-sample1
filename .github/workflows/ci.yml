@@ -1,10 +1,7 @@
 name: Maven Package
 
 # https://docs.github.com/ja/actions/using-workflows/events-that-trigger-workflows#pull_request
-on: [push]
-# on:
-  # PRがオープン、再オープンされた時、PRのヘッドが更新された場合実行
-  # pull_request:
+on: [push] # on: # PRがオープン、再オープンされた時、PRのヘッドが更新された場合実行 # pull_request:
     # types: [ opened, synchronize, reopened ]
     # PRターゲットブランチでフィルターする場合
     # branches: [ master, main, releases/** ]
@@ -15,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      # packages: write
       checks: write
+      # packages: write
 
     steps:
     - uses: actions/checkout@v3
@@ -33,18 +30,18 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Upload Unit Test Results
-      # if: always()
       if: success () || failure ()
       uses: actions/upload-artifact@v3
       with:
-        name: Unit Test Results (Java 17)
+        name: Unit Test Results
         path: 'target/surefire-reports/TEST-*.xml'
+        retention-days: 5
 
     # JUnitテスト結果レポートを作成
     # https://github.com/marketplace/actions/junit-report-action
-    - name: Publish Test Report
+    - name: Publish Unit Test Report
+      if: success () || failure ()
       uses: mikepenz/action-junit-report@v3
-      if: always()
       with:
         report_paths: 'target/surefire-reports/TEST-*.xml'
         # annotate_only: true
