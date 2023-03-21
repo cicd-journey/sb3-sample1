@@ -22,13 +22,13 @@ jobs:
       - name: Upload Unit Test Results
         # if: always()
         if: success () || failure ()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Unit Test Results (Java 17)
           path: 'results/*.xml'
       - name: Download Artifacts
         if: success () || failure ()
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           path: artifacts
       - name: Publish Unit Test Results
