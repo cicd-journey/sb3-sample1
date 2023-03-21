@@ -1,10 +1,11 @@
 name: Maven Package
 
 # https://docs.github.com/ja/actions/using-workflows/events-that-trigger-workflows#pull_request
-on:
+on: [push]
+# on:
   # PRがオープン、再オープンされた時、PRのヘッドが更新された場合実行
-  pull_request:
-    types: [ opened, synchronize, reopened ]
+  # pull_request:
+    # types: [ opened, synchronize, reopened ]
     # PRターゲットブランチでフィルターする場合
     # branches: [ master, main, releases/** ]
 
