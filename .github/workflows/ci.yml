@@ -16,7 +16,7 @@ jobs:
     permissions:
       contents: read
       # packages: write
-      # checks: write
+      checks: write
 
     steps:
     - uses: actions/checkout@v3
