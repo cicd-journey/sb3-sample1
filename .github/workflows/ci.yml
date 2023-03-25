@@ -52,3 +52,13 @@ jobs:
     #   env:
     #     GITHUB_TOKEN: ${{ github.token }}
 
+
+    - name: Docker image build
+      run: docker image build -t sb3-sample1:latest .
+
+    # - name: image build
+    #   uses: docker/build-push-action@v3
+    #   with:
+    #     push: false
+    #     context: .
+    #     # tags: sb3-sample1:latest
